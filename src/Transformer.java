@@ -29,7 +29,7 @@ public class Transformer implements ClassFileTransformer {
     private void modify() {
         try {
             byte[] md5 = MD5(readAll(getClass().getClassLoader().getResourceAsStream("resources/authkey.pub")));
-            byte[] readAll = readAll(getClass().getClassLoader().getResourceAsStream("resources/我们自己的公钥key文件.pub"));
+            byte[] readAll = readAll(getClass().getClassLoader().getResourceAsStream("resources/authkey.pub")); //我们自己的key文件.pub
             if (!"8bb4df00c120881a1945a43e2bb2379e".equals(toHex(md5))) {
                 printError("Invalid authorization file");
                 System.exit(0);
